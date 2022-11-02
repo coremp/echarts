@@ -434,8 +434,8 @@ const builders: Record<'axisLine' | 'axisTickLabel' | 'axisName', AxisElementsBu
             style: createTextStyle(textStyleModel, {
                 text: name,
                 font: textFont,
-                overflow: 'truncate',
-                width: maxWidth,
+                overflow: 'break',
+                width: maxWidth || +textStyleModel.get('width'),
                 ellipsis,
                 fill: textStyleModel.getTextColor()
                     || axisModel.get(['axisLine', 'lineStyle', 'color']) as ColorString,
