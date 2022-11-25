@@ -12568,7 +12568,7 @@
 
       return state;
     }
-    /**FI
+    /**
      * Set hover style (namely "emphasis style") of element.
      * @param el Should not be `zrender/graphic/Group`.
      * @param focus 'self' | 'selfInSeries' | 'series'
@@ -18465,7 +18465,7 @@
           this.restoreData();
         } // By design, if `setOption(option2)` at the second time, and `option2` is a `ECUnitOption`,
         // it should better not have the same props with `MediaUnit['option']`.
-        // Becuase either `option2` or `MediaUnit['option']` will be always merged to "current option"
+        // Because either `option2` or `MediaUnit['option']` will be always merged to "current option"
         // rather than original "baseOption". If they both override a prop, the result might be
         // unexpected when media state changed after `setOption` called.
         // If we really need to modify a props in each `MediaUnit['option']`, use the full version
@@ -18591,7 +18591,7 @@
                     if (seriesImportName) {
                       error("Series " + subType + " is used but not imported.\nimport { " + seriesImportName + " } from 'echarts/charts';\necharts.use([" + seriesImportName + "]);");
                     } else {
-                      error("Unkown series " + subType);
+                      error("Unknown series " + subType);
                     }
                   }
                 }
@@ -18897,7 +18897,7 @@
       };
       /**
        * After filtering, series may be different
-       * frome raw series.
+       * from raw series.
        */
 
 
@@ -18924,7 +18924,7 @@
       };
       /**
        * After filtering, series may be different.
-       * frome raw series.
+       * from raw series.
        */
 
 
@@ -19007,8 +19007,8 @@
         };
 
         initBase = function (ecModel, baseOption) {
-          // Using OPTION_INNER_KEY to mark that this option can not be used outside,
-          // i.e. `chart.setOption(chart.getModel().option);` is forbiden.
+          // Using OPTION_INNER_KEY to mark that this option cannot be used outside,
+          // i.e. `chart.setOption(chart.getModel().option);` is forbidden.
           ecModel.option = {};
           ecModel.option[OPTION_INNER_KEY] = OPTION_INNER_VALUE; // Init with series: [], in case of calling findSeries method
           // before series initialized.
@@ -19142,8 +19142,8 @@
 
       CoordinateSystemManager.prototype.create = function (ecModel, api) {
         var coordinateSystems = [];
-        each(coordinateSystemCreators, function (creater, type) {
-          var list = creater.create(ecModel, api);
+        each(coordinateSystemCreators, function (creator, type) {
+          var list = creator.create(ecModel, api);
           coordinateSystems = coordinateSystems.concat(list || []);
         });
         this._coordinateSystems = coordinateSystems;
@@ -19228,7 +19228,7 @@
           // the restore merge solution is essentially incorrect.
           // the mapping can not be 100% consistent with ecModel, which probably brings
           // potential bug!
-          // The first merge is delayed, becuase in most cases, users do not call `setOption` twice.
+          // The first merge is delayed, because in most cases, users do not call `setOption` twice.
           // let fakeCmptsMap = this._fakeCmptsMap;
           // if (!fakeCmptsMap) {
           //     fakeCmptsMap = this._fakeCmptsMap = createHashMap();
@@ -19239,7 +19239,7 @@
           // );
           // For simplicity, timeline options and media options do not support merge,
           // that is, if you `setOption` twice and both has timeline options, the latter
-          // timeline opitons will not be merged to the formers, but just substitude them.
+          // timeline options will not be merged to the former, but just substitute them.
           if (newParsedOption.timelineOptions.length) {
             optionBackup.timelineOptions = newParsedOption.timelineOptions;
           }
@@ -19480,10 +19480,10 @@
       var realMap = {
         width: ecWidth,
         height: ecHeight,
-        aspectratio: ecWidth / ecHeight // lowser case for convenientce.
+        aspectratio: ecWidth / ecHeight // lower case for convenience.
 
       };
-      var applicatable = true;
+      var applicable = true;
       each(query, function (value, attr) {
         var matched = attr.match(QUERY_REG);
 
@@ -19495,10 +19495,10 @@
         var realAttr = matched[2].toLowerCase();
 
         if (!compare(realMap[realAttr], value, operator)) {
-          applicatable = false;
+          applicable = false;
         }
       });
-      return applicatable;
+      return applicable;
     }
 
     function compare(real, expect, operator) {
@@ -20186,8 +20186,8 @@
               var val = stackInfo.data.getByRawIndex(stackInfo.stackResultDimension, stackedDataRawIndex); // Considering positive stack, negative stack and empty data
 
               if (stackStrategy === 'all' // single stack group
-              || stackStrategy === 'positive' && val > 0 || stackStrategy === 'negative' && val < 0 || stackStrategy === 'samesign' && sum >= 0 && val > 0 // All positive stack
-              || stackStrategy === 'samesign' && sum <= 0 && val < 0 // All negative stack
+              || stackStrategy === 'positive' && val > 0 || stackStrategy === 'negative' && val < 0 || stackStrategy === 'samesign' && sum > 0 && val > 0 // All positive stack
+              || stackStrategy === 'samesign' && sum < 0 && val < 0 // All negative stack
               ) {
                   // The sum has to be very small to be affected by the
                   // floating arithmetic problem. An incorrect result will probably
@@ -20992,8 +20992,8 @@
     // compat it?
     // type TooltipFormatResultLegacyObject = {
     //     // `html` means the markup language text, either in 'html' or 'richText'.
-    //     // The name `html` is not appropriate becuase in 'richText' it is not a HTML
-    //     // string. But still support it for backward compat.
+    //     // The name `html` is not appropriate because in 'richText' it is not a HTML
+    //     // string. But still support it for backward compatibility.
     //     html: string;
     //     markers: Dictionary<ColorString>;
     // };
@@ -21251,11 +21251,11 @@
       };
 
       Task.prototype.setOutputEnd = function (end) {
-        // This only happend in dataTask, dataZoom, map, currently.
+        // This only happens in dataTask, dataZoom, map, currently.
         // where dataZoom do not set end each time, but only set
-        // when reset. So we should record the setted end, in case
+        // when reset. So we should record the set end, in case
         // that the stub of dataZoom perform again and earse the
-        // setted end by upstream.
+        // set end by upstream.
         this._outputDueEnd = this._settedOutputEnd = end;
       };
 
@@ -21292,7 +21292,7 @@
         current++;
         return result;
       }
-    }(); ///////////////////////////////////////////////////////////
+    }(); // -----------------------------------------------------------------------------
     // For stream debug (Should be commented out after used!)
     // @usage: printTask(this, 'begin');
     // @usage: printTask(this, null, {someExtraProp});
@@ -21652,7 +21652,7 @@
       /**
        * Only support by dimension index.
        * No need to support by dimension name in transform function,
-       * becuase transform function is not case-specific, no need to use name literally.
+       * because transform function is not case-specific, no need to use name literally.
        */
 
 
@@ -21690,8 +21690,8 @@
       } // [MEMO]
       // Create a new dimensions structure for exposing.
       // Do not expose all dimension info to users directly.
-      // Becuase the dimension is probably auto detected from data and not might reliable.
-      // Should not lead the transformers to think that is relialbe and return it.
+      // Because the dimension is probably auto detected from data and not might reliable.
+      // Should not lead the transformers to think that is reliable and return it.
       // See [DIMENSION_INHERIT_RULE] in `sourceManager.ts`.
 
 
@@ -22016,7 +22016,7 @@
         if (firstUpSource && resultIndex === 0 // If transformer returns `dimensions`, it means that the transformer has different
         // dimensions definitions. We do not inherit anything from upstream.
         && !result.dimensions) {
-          var startIndex = firstUpSource.startIndex; // We copy the header of upstream to the result becuase:
+          var startIndex = firstUpSource.startIndex; // We copy the header of upstream to the result, because:
           // (1) The returned data always does not contain header line and can not be used
           // as dimension-detection. In this case we can not use "detected dimensions" of
           // upstream directly, because it might be detected based on different `seriesLayoutBy`.
@@ -24058,7 +24058,7 @@
       __extends(SeriesModel, _super);
 
       function SeriesModel() {
-        // [Caution]: Becuase this class or desecendants can be used as `XXX.extend(subProto)`,
+        // [Caution]: Because this class or desecendants can be used as `XXX.extend(subProto)`,
         // the class members must not be initialized in constructor or declaration place.
         // Otherwise there is bad case:
         //   class A {xxx = 1;}
@@ -24179,7 +24179,7 @@
       };
       /**
        * Init a data structure from data related option in series
-       * Must be overriden.
+       * Must be overridden.
        */
 
 
@@ -24290,7 +24290,7 @@
       /**
        * Get base axis if has coordinate system and has axis.
        * By default use coordSys.getBaseAxis();
-       * Can be overrided for some chart.
+       * Can be overridden for some chart.
        * @return {type} description
        */
 
@@ -24493,7 +24493,7 @@
           var selectedMap = option.selectedMap;
 
           for (var i = 0; i < len; i++) {
-            var dataIndex = innerDataIndices[i]; // TODO diffrent types of data share same object.
+            var dataIndex = innerDataIndices[i]; // TODO different types of data share same object.
 
             var nameOrId = getSelectionKey(data, dataIndex);
             selectedMap[nameOrId] = true;
@@ -25097,7 +25097,7 @@
       var styleMapper = seriesModel.visualStyleMapper || defaultStyleMappers[stylePath];
 
       if (!styleMapper) {
-        console.warn("Unkown style type '" + stylePath + "'.");
+        console.warn("Unknown style type '" + stylePath + "'.");
         return defaultStyleMappers.itemStyle;
       }
 
@@ -25109,7 +25109,7 @@
       var colorKey = seriesModel.visualDrawType || defaultColorKey[stylePath];
 
       if (!colorKey) {
-        console.warn("Unkown style type '" + stylePath + "'.");
+        console.warn("Unknown style type '" + stylePath + "'.");
         return 'fill';
       }
 
@@ -25597,12 +25597,12 @@
               }
 
               var performArgs = scheduler.getPerformArgs(task, opt.block); // FIXME
-              // if intending to decalare `performRawSeries` in handlers, only
+              // if intending to declare `performRawSeries` in handlers, only
               // stream-independent (specifically, data item independent) operations can be
-              // performed. Because is a series is filtered, most of the tasks will not
+              // performed. Because if a series is filtered, most of the tasks will not
               // be performed. A stream-dependent operation probably cause wrong biz logic.
               // Perhaps we should not provide a separate callback for this case instead
-              // of providing the config `performRawSeries`. The stream-dependent operaions
+              // of providing the config `performRawSeries`. The stream-dependent operations
               // and stream-independent operations should better not be mixed.
 
               performArgs.skip = !stageHandler.performRawSeries && ecModel.isSeriesFiltered(task.context.model);
@@ -25723,7 +25723,7 @@
         var errMsg = '';
 
         if ("development" !== 'production') {
-          errMsg = '"createOnAllSeries" do not supported for "overallReset", ' + 'becuase it will block all streams.';
+          errMsg = '"createOnAllSeries" is not supported for "overallReset", ' + 'because it will block all streams.';
         }
 
         assert(!stageHandler.createOnAllSeries, errMsg);
@@ -25732,10 +25732,10 @@
           ecModel.eachRawSeriesByType(seriesType, createStub);
         } else if (getTargetSeries) {
           getTargetSeries(ecModel, api).each(createStub);
-        } // Otherwise, (usually it is legancy case), the overall task will only be
-        // executed when upstream dirty. Otherwise the progressive rendering of all
+        } // Otherwise, (usually it is legacy case), the overall task will only be
+        // executed when upstream is dirty. Otherwise the progressive rendering of all
         // pipelines will be disabled unexpectedly. But it still needs stubs to receive
-        // dirty info from upsteam.
+        // dirty info from upstream.
         else {
             overallProgress = false;
             each(ecModel.getSeries(), createStub);
@@ -28079,7 +28079,7 @@
 
     var lifecycle = new Eventful();
 
-    // The implentations will be registered when installing the component.
+    // The implementations will be registered when installing the component.
     // Avoid these code being bundled to the core module.
 
     var implsStore = {}; // TODO Type
@@ -28113,7 +28113,7 @@
     // So data stack stage should be in front of data processing stage.
 
     var PRIORITY_PROCESSOR_DATASTACK = 900; // "Data filter" will block the stream, so it should be
-    // put at the begining of data processing.
+    // put at the beginning of data processing.
 
     var PRIORITY_PROCESSOR_FILTER = 1000;
     var PRIORITY_PROCESSOR_DEFAULT = 2000;
@@ -28363,8 +28363,8 @@
               scheduler.performDataProcessorTasks(ecModel);
               updateStreamModes(this, ecModel); // Do not update coordinate system here. Because that coord system update in
               // each frame is not a good user experience. So we follow the rule that
-              // the extent of the coordinate system is determin in the first frame (the
-              // frame is executed immedietely after task reset.
+              // the extent of the coordinate system is determined in the first frame (the
+              // frame is executed immediately after task reset.
               // this._coordSysMgr.update(ecModel, api);
               // console.log('--- ec frame visual ---', remainTime);
 
@@ -29099,9 +29099,9 @@
         if (flush) {
           this._zr.flush();
         } else if (flush !== false && env.browser.weChat) {
-          // In WeChat embeded browser, `requestAnimationFrame` and `setInterval`
+          // In WeChat embedded browser, `requestAnimationFrame` and `setInterval`
           // hang when sliding page (on touch event), which cause that zr does not
-          // refresh util user interaction finished, which is not expected.
+          // refresh until user interaction finished, which is not expected.
           // But `dispatchAction` may be called too frequently when pan on touch
           // screen, which impacts performance if do not throttle them.
           this._throttledZrFlush();
@@ -29178,7 +29178,7 @@
           }) : ecModel.eachSeries(doPrepare);
 
           function doPrepare(model) {
-            // By defaut view will be reused if possible for the case that `setOption` with "notMerge"
+            // By default view will be reused if possible for the case that `setOption` with "notMerge"
             // mode and need to enable transition animation. (Usually, when they have the same id, or
             // especially no id but have the same type & name & index. See the `model.id` generation
             // rule in `makeIdAndName` and `viewId` generation rule here).
@@ -29359,17 +29359,17 @@
             // Save total ecModel here for undo/redo (after restoring data and before processing data).
             // Undo (restoration of total ecModel) can be carried out in 'action' or outside API call.
             // Create new coordinate system each update
-            // In LineView may save the old coordinate system and use it to get the orignal point
+            // In LineView may save the old coordinate system and use it to get the original point.
 
             coordSysMgr.create(ecModel, api);
             scheduler.performDataProcessorTasks(ecModel, payload); // Current stream render is not supported in data process. So we can update
             // stream modes after data processing, where the filtered data is used to
-            // deteming whether use progressive rendering.
+            // determine whether to use progressive rendering.
 
             updateStreamModes(this, ecModel); // We update stream modes before coordinate system updated, then the modes info
             // can be fetched when coord sys updating (consider the barGrid extent fix). But
             // the drawback is the full coord info can not be fetched. Fortunately this full
-            // coord is not requied in stream mode updater currently.
+            // coord is not required in stream mode updater currently.
 
             coordSysMgr.update(ecModel, api);
             clearColorPalette(ecModel);
@@ -29668,8 +29668,8 @@
 
         bindRenderedEvent = function (zr, ecIns) {
           zr.on('rendered', function (params) {
-            ecIns.trigger('rendered', params); // The `finished` event should not be triggered repeatly,
-            // so it should only be triggered when rendering indeed happend
+            ecIns.trigger('rendered', params); // The `finished` event should not be triggered repeatedly,
+            // so it should only be triggered when rendering indeed happens
             // in zrender. (Consider the case that dipatchAction is keep
             // triggering when mouse move).
 
@@ -29841,7 +29841,7 @@
             }
 
             chartView.group.silent = !!seriesModel.get('silent'); // Should not call markRedraw on group, because it will disable zrender
-            // increamental render (alway render from the __startIndex each frame)
+            // incremental render (always render from the __startIndex each frame)
             // chartView.group.markRedraw();
 
             updateBlend(seriesModel, chartView);
@@ -29949,7 +29949,7 @@
           chartView.eachRendered(function (el) {
             // FIXME marker and other components
             if (!el.isGroup) {
-              // DONT mark the element dirty. In case element is incremental and don't wan't to rerender.
+              // DON'T mark the element dirty. In case element is incremental and don't want to rerender.
               el.style.blend = blendMode;
             }
           });
@@ -30062,7 +30062,7 @@
 
               if (el instanceof Path) {
                 savePathStates(el);
-              } // Only updated on changed element. In case element is incremental and don't wan't to rerender.
+              } // Only updated on changed element. In case element is incremental and don't want to rerender.
               // TODO, a more proper way?
 
 
@@ -30087,7 +30087,7 @@
                 if (textGuide) {
                   textGuide.stateTransition = stateTransition;
                 }
-              } // The use higlighted and selected flag to toggle states.
+              } // Use highlighted and selected flag to toggle states.
 
 
               if (el.__dirty) {
@@ -30350,7 +30350,7 @@
       connectedGroups[groupId] = false;
     }
     /**
-     * Alias and backword compat
+     * Alias and backward compatibility
      */
 
     var disconnect = disConnect;
@@ -30555,7 +30555,7 @@
     //         chart.dispatchAction(payload, opt);
     //     }
     // }
-    // Buitlin global visual
+    // Builtin global visual
 
     registerVisual(PRIORITY_VISUAL_GLOBAL, seriesStyleTask);
     registerVisual(PRIORITY_VISUAL_CHART_DATA_CUSTOM, dataStyleTask);
@@ -31260,8 +31260,8 @@
             ordinalMeta: ordinalMeta
           }); // If retrieving data by index,
           //   use <index, type, ordinalMeta> to determine whether data can be shared.
-          //   (Becuase in this case there might be no dimension name defined in dataset, but indices always exists).
-          //   (indices are always 0, 1, 2, ..., so we can ignore them to shorten the hash).
+          //   (Because in this case there might be no dimension name defined in dataset, but indices always exists).
+          //   (Indices are always 0, 1, 2, ..., so we can ignore them to shorten the hash).
           // Otherwise if retrieving data by property name (like `data: [{aa: 123, bb: 765}, ...]`),
           //   use <property, type, ordinalMeta> in hash.
 
@@ -31361,7 +31361,7 @@
     var isObject$2 = isObject;
     var map$1 = map;
     var CtorInt32Array$1 = typeof Int32Array === 'undefined' ? Array : Int32Array; // Use prefix to avoid index to be the same as otherIdList[idx],
-    // which will cause weird udpate animation.
+    // which will cause weird update animation.
 
     var ID_PREFIX = 'e\0\0';
     var INDEX_NOT_FOUND = -1; // type SeriesDimensionIndex = DimensionIndex;
@@ -31396,13 +31396,13 @@
         // private _optionModels: Model[] = [];
         // Global visual properties after visual coding
 
-        this._visual = {}; // Globel layout properties.
+        this._visual = {}; // Global layout properties.
 
         this._layout = {}; // Item visual properties after visual coding
 
         this._itemVisuals = []; // Item layout properties after layout
 
-        this._itemLayouts = []; // Graphic elemnents
+        this._itemLayouts = []; // Graphic elements
 
         this._graphicEls = []; // key: dim, value: extent
 
@@ -31506,7 +31506,7 @@
        * Because only those dimensions will have auto-generated dimension names if not
        * have a user-specified name, and other dimensions will get a return of null/undefined.
        *
-       * @notice Becuause of this reason, should better use `getDimensionIndex` instead, for examples:
+       * @notice Because of this reason, should better use `getDimensionIndex` instead, for examples:
        * ```js
        * const val = data.getStore().get(data.getDimensionIndex(dim), dataIdx);
        * ```
@@ -31526,7 +31526,7 @@
 
         if (!this._dimOmitted) {
           return this.dimensions[dimIdx];
-        } // Retrieve from series dimension definition becuase it probably contains
+        } // Retrieve from series dimension definition because it probably contains
         // generated dimension name (like 'x', 'y').
 
 
@@ -31572,7 +31572,7 @@
        *     + If there is the same concrete dim name defined in `series.dimensions` or `dataset.dimensions`,
        *        it means that concrete name.
        *     + If not, it will be converted to a number, which means the index of the dimension.
-       *        (why? because of the backward compatbility. We have been tolerating number-like string in
+       *        (why? because of the backward compatibility. We have been tolerating number-like string in
        *        dimension setting, although now it seems that it is not a good idea.)
        *     For example, `visualMap[i].dimension: "1"` is the same meaning as `visualMap[i].dimension: 1`,
        *     if no dimension name is defined as `"1"`.
@@ -31580,7 +31580,7 @@
        *   For example, it can be be default name `"x"`, `"y"`, `"z"`, `"lng"`, `"lat"`, `"angle"`, `"radius"`,
        *   or customized in `dimensions` property of option like `"age"`.
        *
-       * @return recogonized `DimensionIndex`. Otherwise return null/undefined (means that dim is `DimensionName`).
+       * @return recognized `DimensionIndex`. Otherwise return null/undefined (means that dim is `DimensionName`).
        */
 
 
@@ -31596,7 +31596,7 @@
 
         if ("development" !== 'production') {
           if (dimIdx == null) {
-            throw new Error('Unkown dimension ' + dim);
+            throw new Error('Unknown dimension ' + dim);
           }
         }
 
@@ -31721,7 +31721,7 @@
        *            [NaN, 43, 1],
        *            ['-', 'asdf', 0]
        *        ]
-       *        Each item is exaclty cooresponding to a dimension.
+       *        Each item is exactly corresponding to a dimension.
        */
 
 
@@ -31843,7 +31843,7 @@
       };
       /**
        * Calculate extent on a filtered data might be time consuming.
-       * Approximate extent is only used for: calculte extent of filtered data outside.
+       * Approximate extent is only used for: calculate extent of filtered data outside.
        */
 
 
@@ -31860,7 +31860,7 @@
         isObject$2(key) ? extend(this._calculationInfo, key) : this._calculationInfo[key] = value;
       };
       /**
-       * @return Never be null/undefined. `number` will be converted to string. Becuase:
+       * @return Never be null/undefined. `number` will be converted to string. Because:
        * In most cases, name is used in display, where returning a string is more convenient.
        * In other cases, name is used in query (see `indexOfName`), where we can keep the
        * rule that name `2` equals to name `'2'`.
@@ -31894,7 +31894,7 @@
         return ordinal;
       };
       /**
-       * @return Never null/undefined. `number` will be converted to string. Becuase:
+       * @return Never null/undefined. `number` will be converted to string. Because:
        * In all cases having encountered at present, id is used in making diff comparison, which
        * are usually based on hash map. We can keep the rule that the internal id are always string
        * (treat `2` is the same as `'2'`) to make the related logic simple.
@@ -31962,7 +31962,7 @@
         }), idx) : store.getValues(dimensions);
       };
       /**
-       * If value is NaN. Inlcuding '-'
+       * If value is NaN. Including '-'
        * Only check the coord dimensions.
        */
 
@@ -31982,7 +31982,7 @@
         return true;
       };
       /**
-       * Retreive the index with given name
+       * Retrieve the index with given name
        */
 
 
@@ -32030,7 +32030,7 @@
         return rawIndex;
       };
       /**
-       * Retreive the index of nearest value
+       * Retrieve the index of nearest value
        * @param dim
        * @param value
        * @param [maxDistance=Infinity]
@@ -32138,8 +32138,8 @@
         }
 
         var dimIndices = map$1(normalizeDimensions(dims), this._getStoreDimIndex, this); // If do shallow clone here, if there are too many stacked series,
-        // it still cost lots of memory, becuase `_store.dimensions` are not shared.
-        // We should consider there probably be shallow clone happen in each sereis
+        // it still cost lots of memory, because `_store.dimensions` are not shared.
+        // We should consider there probably be shallow clone happen in each series
         // in consequent filter/map.
 
         this._store.modify(dimIndices, fCtx ? bind(cb, fCtx) : cb);
@@ -32443,7 +32443,7 @@
           return dimensions;
         };
         /**
-         * Data in excludeDimensions is copied, otherwise transfered.
+         * Data in excludeDimensions is copied, otherwise transferred.
          */
 
 
@@ -33763,8 +33763,8 @@
       };
 
       IntervalScale.prototype.setInterval = function (interval) {
-        this._interval = interval; // Dropped auto calculated niceExtent and use user setted extent
-        // We assume user wan't to set both interval, min, max to get a better result
+        this._interval = interval; // Dropped auto calculated niceExtent and use user-set extent.
+        // We assume user wants to set both interval, min, max to get a better result.
 
         this._niceExtent = this._extent.slice();
         this._intervalPrecision = getIntervalPrecision(interval);
@@ -34256,7 +34256,7 @@
             }
           } else {
             // `barMinWidth/barMaxWidth` has higher priority than `barWidth`, as
-            // CSS does. Becuase barWidth can be a percent value, where
+            // CSS does. Because barWidth can be a percent value, where
             // `barMaxWidth` can be used to restrict the final width.
             var finalWidth = column.width;
 
@@ -34731,7 +34731,7 @@
 
     function getDateInterval(approxInterval, daysInMonth) {
       approxInterval /= ONE_DAY;
-      return approxInterval > 16 ? 16 // Math.floor(daysInMonth / 2) + 1  // In this case we only want one tick betwen two month.
+      return approxInterval > 16 ? 16 // Math.floor(daysInMonth / 2) + 1  // In this case we only want one tick between two months.
       : approxInterval > 7.5 ? 7 // TODO week 7 or day 8?
       : approxInterval > 3.5 ? 4 : approxInterval > 1.5 ? 2 : 1;
     }
@@ -35413,7 +35413,7 @@
       var ecModel = model.ecModel;
 
       if (ecModel && scaleType === 'time'
-      /*|| scaleType === 'interval' */
+      /* || scaleType === 'interval' */
       ) {
         var barSeriesModels = prepareLayoutBarSeries('bar', ecModel);
         var isBaseAxisAndHasBarSeries_1 = false;
@@ -35676,7 +35676,7 @@
     }
     /**
      * Set `categoryInterval` as 0 implicitly indicates that
-     * show all labels reguardless of overlap.
+     * show all labels regardless of overlap.
      * @param {Object} axis axisModel.axis
      */
 
@@ -35776,7 +35776,7 @@
     }();
 
     /**
-     * Create a muti dimension List structure from seriesModel.
+     * Create a multi dimension List structure from seriesModel.
      */
 
     function createList(seriesModel) {
@@ -35801,9 +35801,9 @@
         axisModel = new Model(option); // FIXME
         // Currently AxisModelCommonMixin has nothing to do with the
         // the requirements of `axisHelper.createScaleByModel`. For
-        // example the method `getCategories` and `getOrdinalMeta`
-        // are required for `'category'` axis, and ecModel are required
-        // for `'time'` axis. But occationally echarts-gl happened
+        // example the methods `getCategories` and `getOrdinalMeta`
+        // are required for `'category'` axis, and ecModel is required
+        // for `'time'` axis. But occasionally echarts-gl happened
         // to only use `'value'` axis.
         // zrUtil.mixin(axisModel, AxisModelCommonMixin);
       }
@@ -35816,7 +35816,7 @@
     /**
      * Mixin common methods to axis model,
      *
-     * Inlcude methods
+     * Include methods
      * `getFormattedLabels() => Array.<string>`
      * `getCategories() => Array.<string>`
      * `getMin(origin: boolean) => number`
@@ -36970,7 +36970,7 @@
     // Should use `ComponentModel.extend` or `class XXXX extend ComponentModel` to create class.
     // Then use `registerComponentModel` in `install` parameter when `use` this extension. For example:
     // class Bar3DModel extends ComponentModel {}
-    // export function install(registers) { regsiters.registerComponentModel(Bar3DModel); }
+    // export function install(registers) { registers.registerComponentModel(Bar3DModel); }
     // echarts.use(install);
 
     function extendComponentModel(proto) {
@@ -41393,7 +41393,7 @@
       var stackResultDim = data.getCalculationInfo('stackResultDimension');
 
       if (isDimensionStacked(data, dims[0]
-      /*, dims[1]*/
+      /* , dims[1] */
       )) {
         // jshint ignore:line
         stacked = true;
@@ -41401,7 +41401,7 @@
       }
 
       if (isDimensionStacked(data, dims[1]
-      /*, dims[0]*/
+      /* , dims[0] */
       )) {
         // jshint ignore:line
         stacked = true;
@@ -43539,18 +43539,42 @@
         });
       };
 
-      BaseBarSeriesModel.prototype.getMarkerPosition = function (value) {
+      BaseBarSeriesModel.prototype.getMarkerPosition = function (value, dims, startingAtTick) {
+        if (startingAtTick === void 0) {
+          startingAtTick = false;
+        }
+
         var coordSys = this.coordinateSystem;
 
         if (coordSys && coordSys.clampData) {
           // PENDING if clamp ?
-          var pt = coordSys.dataToPoint(coordSys.clampData(value));
-          var data = this.getData();
-          var offset = data.getLayout('offset');
-          var size = data.getLayout('size');
-          var offsetIndex = coordSys.getBaseAxis().isHorizontal() ? 0 : 1;
-          pt[offsetIndex] += offset + size / 2;
-          return pt;
+          var pt_1 = coordSys.dataToPoint(coordSys.clampData(value));
+
+          if (startingAtTick) {
+            each(coordSys.getAxes(), function (axis, idx) {
+              // If axis type is category, use tick coords instead
+              if (axis.type === 'category') {
+                var tickCoords = axis.getTicksCoords();
+                var tickIdx = coordSys.clampData(value)[idx]; // The index of rightmost tick of markArea is 1 larger than x1/y1 index
+
+                if (dims && (dims[idx] === 'x1' || dims[idx] === 'y1')) {
+                  tickIdx += 1;
+                }
+
+                tickIdx > tickCoords.length - 1 && (tickIdx = tickCoords.length - 1);
+                tickIdx < 0 && (tickIdx = 0);
+                tickCoords[tickIdx] && (pt_1[idx] = axis.toGlobalCoord(tickCoords[tickIdx].coord));
+              }
+            });
+          } else {
+            var data = this.getData();
+            var offset = data.getLayout('offset');
+            var size = data.getLayout('size');
+            var offsetIndex = coordSys.getBaseAxis().isHorizontal() ? 0 : 1;
+            pt_1[offsetIndex] += offset + size / 2;
+          }
+
+          return pt_1;
         }
 
         return [NaN, NaN];
@@ -45457,8 +45481,13 @@
 
         if (Math.abs(sectorShape.endAngle - sectorShape.startAngle) < minShowLabelRadian) {
           each(label.states, setNotShow);
-          each(labelLine.states, setNotShow);
-          label.ignore = labelLine.ignore = true;
+          label.ignore = true;
+
+          if (labelLine) {
+            each(labelLine.states, setNotShow);
+            labelLine.ignore = true;
+          }
+
           return;
         }
 
@@ -46031,6 +46060,8 @@
       return LegendVisualProvider;
     }();
 
+    var innerData = makeInner();
+
     var PieSeriesModel =
     /** @class */
     function (_super) {
@@ -46067,16 +46098,10 @@
 
 
       PieSeriesModel.prototype.getInitialData = function () {
-        var data = createSeriesDataSimply(this, {
+        return createSeriesDataSimply(this, {
           coordDimensions: ['value'],
           encodeDefaulter: curry(makeSeriesEncodeForNameBased, this)
         });
-        var valueList = [];
-        data.each(data.mapDimension('value'), function (value) {
-          valueList.push(value);
-        });
-        this.seats = getPercentSeats(valueList, data.hostModel.get('percentPrecision'));
-        return data;
       };
       /**
        * @overwrite
@@ -46084,9 +46109,23 @@
 
 
       PieSeriesModel.prototype.getDataParams = function (dataIndex) {
-        var params = _super.prototype.getDataParams.call(this, dataIndex);
+        var data = this.getData(); // update seats when data is changed
 
-        params.percent = this.seats[dataIndex];
+        var dataInner = innerData(data);
+        var seats = dataInner.seats;
+
+        if (!seats) {
+          var valueList_1 = [];
+          data.each(data.mapDimension('value'), function (value) {
+            valueList_1.push(value);
+          });
+          seats = dataInner.seats = getPercentSeats(valueList_1, data.hostModel.get('percentPrecision'));
+        }
+
+        var params = _super.prototype.getDataParams.call(this, dataIndex); // seats may be empty when sum is 0
+
+
+        params.percent = seats[dataIndex] || 0;
         params.$vars.push('percent');
         return params;
       };
@@ -46150,8 +46189,8 @@
           // Works only position is 'outer' and alignTo is not 'edge'.
           bleedMargin: 10,
           // Distance between text and label line.
-          distanceToLabelLine: 5 // formatter: 标签文本格式器，同Tooltip.formatter，不支持异步回调
-          // 默认使用全局文本样式，详见TEXTSTYLE
+          distanceToLabelLine: 5 // formatter: 标签文本格式器，同 tooltip.formatter，不支持异步回调
+          // 默认使用全局文本样式，详见 textStyle
           // distance: 当position为inner时有效，为label位置到圆心的距离与圆半径(环状图为内外半径和)的比例系数
 
         },
@@ -47768,7 +47807,7 @@
         var axesCount = {
           x: 0,
           y: 0
-        }; /// Create axis
+        }; // Create axis
 
         ecModel.eachComponent('xAxis', createAxisCreator('x'), this);
         ecModel.eachComponent('yAxis', createAxisCreator('y'), this);
@@ -47780,7 +47819,7 @@
           return;
         }
 
-        this._axesMap = axesMap; /// Create cartesian2d
+        this._axesMap = axesMap; // Create cartesian2d
 
         each(axesMap.x, function (xAxis, xAxisIndex) {
           each(axesMap.y, function (yAxis, yAxisIndex) {
@@ -48284,8 +48323,8 @@
           style: createTextStyle(textStyleModel, {
             text: name,
             font: textFont,
-            overflow: 'truncate',
-            width: maxWidth,
+            overflow: 'break',
+            width: maxWidth || +textStyleModel.get('width'),
             ellipsis: ellipsis,
             fill: textStyleModel.getTextColor() || axisModel.get(['axisLine', 'lineStyle', 'color']),
             align: textStyleModel.get('align') || labelLayout.textAlign,
@@ -51270,7 +51309,7 @@
      * no common parents but both of them need to display label "lung" inside.
      */
 
-    var REGION_AVAILABLE_SVG_TAG_MAP = createHashMap(['rect', 'circle', 'line', 'ellipse', 'polygon', 'polyline', 'path', // <text> <tspan> are also enabled becuase some SVG might paint text itself,
+    var REGION_AVAILABLE_SVG_TAG_MAP = createHashMap(['rect', 'circle', 'line', 'ellipse', 'polygon', 'polyline', 'path', // <text> <tspan> are also enabled because some SVG might paint text itself,
     // but still need to trigger events or tooltip.
     'text', 'tspan', // <g> is also enabled because this case: if multiple tags share one name
     // and need label displayed, every tags will display the name, which is not
@@ -51468,7 +51507,7 @@
 
 
       GeoSVGResource.prototype.useGraphic = function (hostKey
-      /*, nameMap: NameMap */
+      /* , nameMap: NameMap */
       ) {
         var usedRootMap = this._usedGraphicMap;
         var svgGraphic = usedRootMap.get(hostKey);
@@ -51642,7 +51681,7 @@
       '广东': [0, -10],
       '香港': [10, 5],
       '澳门': [-10, 10],
-      //'北京': [-10, 0],
+      // '北京': [-10, 0],
       '天津': [5, 5]
     };
     function fixTextCoords(mapType, region) {
@@ -52369,7 +52408,7 @@
        * `ignore` might have been modified by `LabelManager`, and `LabelManager#addLabelsOfSeries`
        * will subsequently cache `defaultAttr` like `ignore`. If do not do this reset, the modified
        * props will have no chance to be restored.
-       * Note: this reset should be after `clearStates` in `renderSeries` becuase `useStates` in
+       * Note: This reset should be after `clearStates` in `renderSeries` because `useStates` in
        * `renderSeries` will cache the modified `ignore` to `el._normalState`.
        * TODO:
        * Use clone/immutable in `LabelManager`?
@@ -52409,7 +52448,7 @@
     }();
 
     function applyOptionStyleForRegion(viewBuildCtx, el, dataIndex, regionModel) {
-      // All of the path are using `itemStyle`, becuase
+      // All of the path are using `itemStyle`, because
       // (1) Some SVG also use fill on polyline (The different between
       // polyline and polygon is "open" or "close" but not fill or not).
       // (2) For the common props like opacity, if some use itemStyle
@@ -52942,7 +52981,7 @@
         // for geoSVG source: 1,
         // for geoJSON source: 0.75.
         aspectScale: null,
-        ///// Layout with center and size
+        // Layout with center and size
         // If you wan't to put map in a fixed size box with right aspect ratio
         // This two properties may more conveninet
         // layoutCenter: [50%, 50%]
@@ -53268,9 +53307,9 @@
 
       View.prototype.getTransformInfo = function () {
         var rawTransformable = this._rawTransformable;
-        var roamTransformable = this._roamTransformable; // Becuase roamTransformabel has `originX/originY` modified,
+        var roamTransformable = this._roamTransformable; // Because roamTransformabel has `originX/originY` modified,
         // but the caller of `getTransformInfo` can not handle `originX/originY`,
-        // so need to recalcualte them.
+        // so need to recalculate them.
 
         var dummyTransformable = new Transformable();
         dummyTransformable.transform = roamTransformable.transform;
@@ -53901,7 +53940,7 @@
         // for geoSVG source: 1,
         // for geoJSON source: 0.75.
         aspectScale: null,
-        ///// Layout with center and size
+        // /// Layout with center and size
         // If you wan't to put map in a fixed size box with right aspect ratio
         // This two properties may more conveninet
         // layoutCenter: [50%, 50%]
@@ -55715,7 +55754,7 @@
 
 
       TreeSeriesModel.prototype.getInitialData = function (option) {
-        //create an virtual root
+        // create a virtual root
         var root = {
           name: option.name,
           children: option.data
@@ -56376,7 +56415,7 @@
           },
           emphasis: {
             itemStyle: {
-              color: 'rgba(0,0,0,0.9)' //'#5793f3',
+              color: 'rgba(0,0,0,0.9)' // '#5793f3',
 
             }
           }
@@ -57793,7 +57832,7 @@
         return VisualMapping.visualHandlers.hasOwnProperty(visualType);
       };
       /**
-       * Convinent method.
+       * Convenient method.
        * Visual can be Object or Array or primary type.
        */
 
@@ -60825,7 +60864,7 @@
             });
           }
 
-          el.setDraggable(draggable && !!forceLayout, !!itemModel.get('cursor'));
+          el.setDraggable(draggable, !!itemModel.get('cursor'));
           var focus = itemModel.get(['emphasis', 'focus']);
 
           if (focus === 'adjacency') {
@@ -61838,6 +61877,7 @@
         endAngle = angles[1];
         var angleRangeSpan = endAngle - startAngle;
         var prevEndAngle = startAngle;
+        var sectors = [];
 
         for (var i = 0; showAxis && i < colorList.length; i++) {
           // Clamp
@@ -61861,9 +61901,14 @@
           sector.setStyle(lineStyleModel.getLineStyle( // Because we use sector to simulate arc
           // so the properties for stroking are useless
           ['color', 'width']));
-          group.add(sector);
+          sectors.push(sector);
           prevEndAngle = endAngle;
         }
+
+        sectors.reverse();
+        each(sectors, function (sector) {
+          return group.add(sector);
+        });
 
         var getColor = function (percent) {
           // Less than 0
@@ -65619,6 +65664,14 @@
 
           }
 
+          setLabelStyle(curve, getLabelStatesModels(edgeModel, 'edgeLabel'), {
+            labelFetcher: seriesModel,
+            labelDataIndex: edge.dataIndex,
+            defaultText: "" + edgeModel.get('value')
+          });
+          curve.setTextConfig({
+            position: 'inside'
+          });
           var emphasisModel = edgeModel.getModel('emphasis');
           setStatesStylesFromModel(curve, edgeModel, 'lineStyle', function (model) {
             return model.getItemStyle();
@@ -65884,6 +65937,10 @@
           position: 'right',
           fontSize: 12
         },
+        edgeLabel: {
+          show: false,
+          fontSize: 12
+        },
         levels: [],
         nodeAlign: 'justify',
         lineStyle: {
@@ -65976,7 +66033,7 @@
       // the value is 0, otherwise it is 1.
       var remainEdges = []; // Storage each node's indegree.
 
-      var indegreeArr = []; //Used to storage the node with indegree is equal to 0.
+      var indegreeArr = []; // Used to storage the node with indegree is equal to 0.
 
       var zeroIndegrees = [];
       var nextTargetNode = [];
@@ -66425,6 +66482,7 @@
       ecModel.eachSeriesByType('sankey', function (seriesModel) {
         var graph = seriesModel.getGraph();
         var nodes = graph.nodes;
+        var edges = graph.edges;
 
         if (nodes.length) {
           var minValue_1 = Infinity;
@@ -66461,6 +66519,13 @@
                 fill: mapValueToColor
               });
             }
+          });
+        }
+
+        if (edges.length) {
+          each(edges, function (edge) {
+            var edgeStyle = edge.getModel().get('lineStyle');
+            edge.setVisual('style', edgeStyle);
           });
         }
       });
@@ -66807,50 +66872,6 @@
       });
     }
 
-    /*
-    * Licensed to the Apache Software Foundation (ASF) under one
-    * or more contributor license agreements.  See the NOTICE file
-    * distributed with this work for additional information
-    * regarding copyright ownership.  The ASF licenses this file
-    * to you under the Apache License, Version 2.0 (the
-    * "License"); you may not use this file except in compliance
-    * with the License.  You may obtain a copy of the License at
-    *
-    *   http://www.apache.org/licenses/LICENSE-2.0
-    *
-    * Unless required by applicable law or agreed to in writing,
-    * software distributed under the License is distributed on an
-    * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    * KIND, either express or implied.  See the License for the
-    * specific language governing permissions and limitations
-    * under the License.
-    */
-
-
-    /**
-     * AUTO-GENERATED FILE. DO NOT MODIFY.
-     */
-
-    /*
-    * Licensed to the Apache Software Foundation (ASF) under one
-    * or more contributor license agreements.  See the NOTICE file
-    * distributed with this work for additional information
-    * regarding copyright ownership.  The ASF licenses this file
-    * to you under the Apache License, Version 2.0 (the
-    * "License"); you may not use this file except in compliance
-    * with the License.  You may obtain a copy of the License at
-    *
-    *   http://www.apache.org/licenses/LICENSE-2.0
-    *
-    * Unless required by applicable law or agreed to in writing,
-    * software distributed under the License is distributed on an
-    * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    * KIND, either express or implied.  See the License for the
-    * specific language governing permissions and limitations
-    * under the License.
-    */
-    function boxplotVisual(ecModel, api) {}
-
     var each$6 = each;
     function boxplotLayout(ecModel) {
       var groupResult = groupSeriesByAxis(ecModel);
@@ -67093,7 +67114,6 @@
     function install$j(registers) {
       registers.registerSeriesModel(BoxplotSeriesModel);
       registers.registerChartView(BoxplotView);
-      registers.registerVisual(boxplotVisual);
       registers.registerLayout(boxplotLayout);
       registers.registerTransform(boxplotTransform);
     }
@@ -67410,8 +67430,17 @@
         ignoreCoarsePointer: true
       });
       group.add(elN);
+      var elDoji = new LargeBoxPath({
+        shape: {
+          points: largePoints
+        },
+        __sign: 0,
+        ignoreCoarsePointer: true
+      });
+      group.add(elDoji);
       setLargeStyle(1, elP, seriesModel);
       setLargeStyle(-1, elN, seriesModel);
+      setLargeStyle(0, elDoji, seriesModel);
 
       if (incremental) {
         elP.incremental = true;
@@ -67425,8 +67454,14 @@
 
     function setLargeStyle(sign, el, seriesModel, data) {
       // TODO put in visual?
-      var borderColor = seriesModel.get(['itemStyle', sign > 0 ? 'borderColor' : 'borderColor0']) || seriesModel.get(['itemStyle', sign > 0 ? 'color' : 'color0']); // Color must be excluded.
+      var borderColor = seriesModel.get(['itemStyle', sign > 0 ? 'borderColor' : 'borderColor0']) // Use color for border color by default.
+      || seriesModel.get(['itemStyle', sign > 0 ? 'color' : 'color0']);
+
+      if (sign === 0) {
+        borderColor = seriesModel.get(['itemStyle', 'borderColorDoji']);
+      } // Color must be excluded.
       // Because symbol provide setColor individually to set fill and stroke
+
 
       var itemStyle = seriesModel.getModel('itemStyle').getItemStyle(SKIP_PROPS);
       el.useStyle(itemStyle);
@@ -67489,6 +67524,7 @@
           color0: '#47b262',
           borderColor: '#eb5454',
           borderColor0: '#47b262',
+          borderColorDoji: null,
           // borderColor: '#d24040',
           // borderColor0: '#398f4f',
           borderWidth: 1
@@ -67530,6 +67566,7 @@
 
     var positiveBorderColorQuery = ['itemStyle', 'borderColor'];
     var negativeBorderColorQuery = ['itemStyle', 'borderColor0'];
+    var dojiBorderColorQuery = ['itemStyle', 'borderColorDoji'];
     var positiveColorQuery = ['itemStyle', 'color'];
     var negativeColorQuery = ['itemStyle', 'color0'];
     var candlestickVisual = {
@@ -67543,7 +67580,7 @@
         }
 
         function getBorderColor(sign, model) {
-          return model.get(sign > 0 ? positiveBorderColorQuery : negativeBorderColorQuery);
+          return model.get(sign === 0 ? dojiBorderColorQuery : sign > 0 ? positiveBorderColorQuery : negativeBorderColorQuery);
         } // Only visible series has each data be visual encoded
 
 
@@ -67620,8 +67657,10 @@
             addBodyEnd(ends, ocHighPoint, 0);
             addBodyEnd(ends, ocLowPoint, 1);
             ends.push(subPixelOptimizePoint(highestPoint), subPixelOptimizePoint(ocHighPoint), subPixelOptimizePoint(lowestPoint), subPixelOptimizePoint(ocLowPoint));
+            var itemModel = data.getItemModel(dataIndex);
+            var hasDojiColor = !!itemModel.get(['itemStyle', 'borderColorDoji']);
             data.setItemLayout(dataIndex, {
-              sign: getSign(store, dataIndex, openVal, closeVal, closeDimI),
+              sign: getSign(store, dataIndex, openVal, closeVal, closeDimI, hasDojiColor),
               initBaseline: openVal > closeVal ? ocHighPoint[vDimIdx] : ocLowPoint[vDimIdx],
               ends: ends,
               brushRect: makeBrushRect(lowestVal, highestVal, axisDimVal)
@@ -67671,6 +67710,7 @@
           var tmpOut = [];
           var dataIndex;
           var store = data.getStore();
+          var hasDojiColor = !!seriesModel.get(['itemStyle', 'borderColorDoji']);
 
           while ((dataIndex = params.next()) != null) {
             var axisDimVal = store.get(cDimI, dataIndex);
@@ -67685,7 +67725,7 @@
               continue;
             }
 
-            points[offset++] = getSign(store, dataIndex, openVal, closeVal, closeDimI);
+            points[offset++] = getSign(store, dataIndex, openVal, closeVal, closeDimI, hasDojiColor);
             tmpIn[cDimIdx] = axisDimVal;
             tmpIn[vDimIdx] = lowestVal;
             point = coordSys.dataToPoint(tmpIn, null, tmpOut);
@@ -67700,8 +67740,15 @@
         }
       }
     };
+    /**
+     * Get the sign of a single data.
+     *
+     * @returns 0 for doji with hasDojiColor: true,
+     *          1 for positive,
+     *          -1 for negative.
+     */
 
-    function getSign(store, dataIndex, openVal, closeVal, closeDimI) {
+    function getSign(store, dataIndex, openVal, closeVal, closeDimI, hasDojiColor) {
       var sign;
 
       if (openVal > closeVal) {
@@ -67709,7 +67756,8 @@
       } else if (openVal < closeVal) {
         sign = 1;
       } else {
-        sign = dataIndex > 0 // If close === open, compare with close of last record
+        sign = hasDojiColor // When doji color is set, use it instead of color/color0.
+        ? 0 : dataIndex > 0 // If close === open, compare with close of last record
         ? store.get(closeDimI, dataIndex - 1) <= closeVal ? 1 : -1 : // No record of previous, set to be positive
         1;
       }
@@ -69188,7 +69236,7 @@
           var CoordSys = CoordinateSystemManager.get(option.coordinateSystem);
 
           if (!CoordSys) {
-            throw new Error('Unkown coordinate system ' + option.coordinateSystem);
+            throw new Error('Unknown coordinate system ' + option.coordinateSystem);
           }
         }
 
@@ -72794,12 +72842,12 @@
       if (!el) {
         return;
       } // If el is remove from zr by reason like legend, during still need to called,
-      // becuase el will be added back to zr and the prop value should not be incorrect.
+      // because el will be added back to zr and the prop value should not be incorrect.
 
 
       var latestUserDuring = transitionInnerStore(el).userDuring;
       var scopeUserDuring = scope.userDuring; // Ensured a during is only called once in each animation frame.
-      // If a during is called multiple times in one frame, maybe some users' calulation logic
+      // If a during is called multiple times in one frame, maybe some users' calculation logic
       // might be wrong (not sure whether this usage exists).
       // The case of a during might be called twice can be: by default there is a animator for
       // 'x', 'y' when init. Before the init animation finished, call `setOption` to start
@@ -76584,7 +76632,7 @@
         var valueDim = data.mapDimension(valueAxis.dim);
         var baseDim = data.mapDimension(baseAxis.dim);
         var stacked = isDimensionStacked(data, valueDim
-        /*, baseDim*/
+        /* , baseDim */
         );
         var clampLayout = baseAxis.dim !== 'radius' || !seriesModel.get('roundCap', true);
         var valueAxisStart = valueAxis.dataToCoord(0);
@@ -79248,7 +79296,7 @@
       };
 
       DataZoomModel.prototype.mergeOption = function (newOption) {
-        var inputRawOption = retrieveRawOption(newOption); //FIX #2591
+        var inputRawOption = retrieveRawOption(newOption); // FIX #2591
 
         merge(this.option, newOption, true);
         merge(this.settledOption, inputRawOption, true);
@@ -85330,7 +85378,7 @@
         var data = timelineModel.getData(); // Show all ticks, despite ignoring strategy.
 
         var ticks = axis.scale.getTicks();
-        this._tickSymbols = []; // The value is dataIndex, see the costomized scale.
+        this._tickSymbols = []; // The value is dataIndex, see the customized scale.
 
         each(ticks, function (tick) {
           var tickCoord = axis.dataToCoord(tick.value);
@@ -85373,7 +85421,7 @@
         var labels = axis.getViewLabels();
         this._tickLabels = [];
         each(labels, function (labelItem) {
-          // The tickValue is dataIndex, see the costomized scale.
+          // The tickValue is dataIndex, see the customized scale.
           var dataIndex = labelItem.tickValue;
           var itemModel = data.getItemModel(dataIndex);
           var normalLabelModel = itemModel.getModel('label');
@@ -85487,9 +85535,12 @@
 
         this._currentPointer.markRedraw();
 
-        this._progressLine.shape.x2 = toCoord;
+        var progressLine = this._progressLine;
 
-        this._progressLine.dirty();
+        if (progressLine) {
+          progressLine.shape.x2 = toCoord;
+          progressLine.dirty();
+        }
 
         var targetDataIndex = this._findNearestTick(toCoord);
 
@@ -86031,8 +86082,8 @@
         z: 5,
         symbol: 'pin',
         symbolSize: 50,
-        //symbolRotate: 0,
-        //symbolOffset: [0, 0]
+        // symbolRotate: 0,
+        // symbolOffset: [0, 0]
         tooltip: {
           trigger: 'item'
         },
@@ -86063,7 +86114,7 @@
     function markerTypeCalculatorWithExtent(markerType, data, otherDataDim, targetDataDim, otherCoordIndex, targetCoordIndex) {
       var coordArr = [];
       var stacked = isDimensionStacked(data, targetDataDim
-      /*, otherDataDim*/
+      /* , otherDataDim */
       );
       var calcDataDim = stacked ? data.getCalculationInfo('stackResultDimension') : targetDataDim;
       var value = numCalculate(data, calcDataDim, markerType);
@@ -86453,7 +86504,7 @@
         z: 5,
         symbol: ['circle', 'arrow'],
         symbolSize: [8, 16],
-        //symbolRotate: 0,
+        // symbolRotate: 0,
         symbolOffset: 0,
         precision: 2,
         tooltip: {
@@ -86942,11 +86993,11 @@
         // }
         if (fromCoord && toCoord && (ifMarkAreaHasOnlyDim(1, fromCoord, toCoord) || ifMarkAreaHasOnlyDim(0, fromCoord, toCoord))) {
           return true;
-        } //Directly returning true may also do the work,
-        //because markArea will not be shown automatically
-        //when it's not included in coordinate system.
-        //But filtering ahead can avoid keeping rendering markArea
-        //when there are too many of them.
+        } // Directly returning true may also do the work,
+        // because markArea will not be shown automatically
+        // when it's not included in coordinate system.
+        // But filtering ahead can avoid keeping rendering markArea
+        // when there are too many of them.
 
 
         return zoneFilter(coordSys, item0, item1);
@@ -86968,8 +87019,28 @@
       } else {
         // Chart like bar may have there own marker positioning logic
         if (seriesModel.getMarkerPosition) {
-          // Use the getMarkerPosition
-          point = seriesModel.getMarkerPosition(data.getValues(dims, idx));
+          // Consider the case that user input the right-bottom point first
+          // Pick the larger x and y as 'x1' and 'y1'
+          var pointValue0 = data.getValues(['x0', 'y0'], idx);
+          var pointValue1 = data.getValues(['x1', 'y1'], idx);
+          var clampPointValue0 = coordSys.clampData(pointValue0);
+          var clampPointValue1 = coordSys.clampData(pointValue1);
+          var pointValue = [];
+
+          if (dims[0] === 'x0') {
+            pointValue[0] = clampPointValue0[0] > clampPointValue1[0] ? pointValue1[0] : pointValue0[0];
+          } else {
+            pointValue[0] = clampPointValue0[0] > clampPointValue1[0] ? pointValue0[0] : pointValue1[0];
+          }
+
+          if (dims[1] === 'y0') {
+            pointValue[1] = clampPointValue0[1] > clampPointValue1[1] ? pointValue1[1] : pointValue0[1];
+          } else {
+            pointValue[1] = clampPointValue0[1] > clampPointValue1[1] ? pointValue0[1] : pointValue1[1];
+          } // Use the getMarkerPoisition
+
+
+          point = seriesModel.getMarkerPosition(pointValue, dims, true);
         } else {
           var x = data.get(dims[0], idx);
           var y = data.get(dims[1], idx);
@@ -87343,6 +87414,7 @@
         // which is convinient for user preparing option.
 
         var rawData = this.get('data') || potentialData;
+        var legendNameMap = createHashMap();
         var legendData = map(rawData, function (dataItem) {
           // Can be string or number
           if (isString(dataItem) || isNumber(dataItem)) {
@@ -87351,6 +87423,12 @@
             };
           }
 
+          if (legendNameMap.get(dataItem.name)) {
+            // remove legend name duplicate
+            return null;
+          }
+
+          legendNameMap.set(dataItem.name, true);
           return new Model(dataItem, this, this.ecModel);
         }, this);
         /**
@@ -87358,7 +87436,9 @@
          * @private
          */
 
-        this._data = legendData;
+        this._data = filter(legendData, function (item) {
+          return !!item;
+        });
       };
 
       LegendModel.prototype.getData = function () {
@@ -87846,7 +87926,7 @@
             selectorPos[orientIdx] += contentRect[wh] + selectorButtonGap;
           } else {
             contentPos[orientIdx] += selectorRect[wh] + selectorButtonGap;
-          } //Always align selector to content as 'middle'
+          } // Always align selector to content as 'middle'
 
 
           selectorPos[1 - orientIdx] += contentRect[hw] / 2 - selectorRect[hw] / 2;
@@ -88885,7 +88965,7 @@
         var apiInner = inner$k(api);
         var coordSysRecordMap = apiInner.coordSysRecordMap || (apiInner.coordSysRecordMap = createHashMap());
         coordSysRecordMap.each(function (coordSysRecord) {
-          // `coordSysRecordMap` always exists (becuase it hold the `roam controller`, which should
+          // `coordSysRecordMap` always exists (because it holds the `roam controller`, which should
           // better not re-create each time), but clear `dataZoomInfoMap` each round of the workflow.
           coordSysRecord.dataZoomInfoMap = null;
         });
@@ -92609,7 +92689,7 @@
 
         if (useDecal) {
           // Each type of series use one scope.
-          // Pie and funnel are using diferrent scopes
+          // Pie and funnel are using different scopes.
           var paletteScopeGroupByType_1 = createHashMap();
           ecModel.eachSeries(function (seriesModel) {
             if (seriesModel.isColorBySeries()) {
@@ -94662,6 +94742,7 @@
 
         for (var dataIndex = 0; dataIndex < indices.length; dataIndex++) {
           items.push({
+            dataGroupId: seriesInfo.dataGroupId,
             data: data,
             dim: seriesInfo.dim || groupDim,
             divide: seriesInfo.divide,
@@ -94780,7 +94861,7 @@
           // If group id not exits. Use id instead. If so, only one to one transition will be applied.
 
 
-          var dataGroupId = data.hostModel && data.hostModel.get('dataGroupId'); // If specified key dimension(itemGroupId by default). Use this same dimension from other data.
+          var dataGroupId = diffItem.dataGroupId; // If specified key dimension(itemGroupId by default). Use this same dimension from other data.
           // PENDING: If only use key dimension of newData.
 
           var keyDim = isOld ? oldKeyDim || newKeyDim : newKeyDim || oldKeyDim;
@@ -94997,17 +95078,22 @@
 
       var oldDataMapForSplit = createHashMap();
       each(globalStore.oldSeries, function (series, idx) {
+        var oldDataGroupId = globalStore.oldDataGroupIds[idx];
         var oldData = globalStore.oldData[idx];
         var transitionKey = getSeriesTransitionKey(series);
         var transitionKeyStr = convertArraySeriesKeyToString(transitionKey);
-        oldDataMap.set(transitionKeyStr, oldData);
+        oldDataMap.set(transitionKeyStr, {
+          dataGroupId: oldDataGroupId,
+          data: oldData
+        });
 
         if (isArray(transitionKey)) {
           // Same key can't in different array seriesKey.
           each(transitionKey, function (key) {
             oldDataMapForSplit.set(key, {
-              data: oldData,
-              key: transitionKeyStr
+              key: transitionKeyStr,
+              dataGroupId: oldDataGroupId,
+              data: oldData
             });
           });
         }
@@ -95021,6 +95107,7 @@
 
       each(params.updatedSeries, function (series) {
         if (series.isUniversalTransitionEnabled() && series.isAnimationEnabled()) {
+          var newDataGroupId = series.get('dataGroupId');
           var newData = series.getData();
           var transitionKey = getSeriesTransitionKey(series);
           var transitionKeyStr = convertArraySeriesKeyToString(transitionKey); // Only transition between series with same id.
@@ -95035,10 +95122,12 @@
 
             updateBatches.set(transitionKeyStr, {
               oldSeries: [{
-                divide: getDivideShapeFromData(oldData),
-                data: oldData
+                dataGroupId: oldData.dataGroupId,
+                divide: getDivideShapeFromData(oldData.data),
+                data: oldData.data
               }],
               newSeries: [{
+                dataGroupId: newDataGroupId,
                 divide: getDivideShapeFromData(newData),
                 data: newData
               }]
@@ -95054,10 +95143,11 @@
               each(transitionKey, function (key) {
                 var oldData = oldDataMap.get(key);
 
-                if (oldData) {
+                if (oldData.data) {
                   oldSeries_1.push({
-                    divide: getDivideShapeFromData(oldData),
-                    data: oldData
+                    dataGroupId: oldData.dataGroupId,
+                    divide: getDivideShapeFromData(oldData.data),
+                    data: oldData.data
                   });
                 }
               });
@@ -95066,6 +95156,7 @@
                 updateBatches.set(transitionKeyStr, {
                   oldSeries: oldSeries_1,
                   newSeries: [{
+                    dataGroupId: newDataGroupId,
                     data: newData,
                     divide: getDivideShapeFromData(newData)
                   }]
@@ -95081,6 +95172,7 @@
                 if (!batch) {
                   batch = {
                     oldSeries: [{
+                      dataGroupId: oldData_1.dataGroupId,
                       data: oldData_1.data,
                       divide: getDivideShapeFromData(oldData_1.data)
                     }],
@@ -95090,6 +95182,7 @@
                 }
 
                 batch.newSeries.push({
+                  dataGroupId: newDataGroupId,
                   data: newData,
                   divide: getDivideShapeFromData(newData)
                 });
@@ -95119,6 +95212,7 @@
 
         if (idx >= 0) {
           from.push({
+            dataGroupId: globalStore.oldDataGroupIds[idx],
             data: globalStore.oldData[idx],
             // TODO can specify divideShape in transition.
             divide: getDivideShapeFromData(globalStore.oldData[idx]),
@@ -95132,6 +95226,7 @@
         if (idx >= 0) {
           var data = params.updatedSeries[idx].getData();
           to.push({
+            dataGroupId: globalStore.oldDataGroupIds[idx],
             data: data,
             divide: getDivideShapeFromData(data),
             dim: finder.dimension
@@ -95191,6 +95286,7 @@
 
         var allSeries = ecModel.getSeries();
         var savedSeries = globalStore.oldSeries = [];
+        var savedDataGroupIds = globalStore.oldDataGroupIds = [];
         var savedData = globalStore.oldData = [];
 
         for (var i = 0; i < allSeries.length; i++) {
@@ -95199,6 +95295,7 @@
 
           if (data.count() < DATA_COUNT_THRESHOLD) {
             savedSeries.push(allSeries[i]);
+            savedDataGroupIds.push(allSeries[i].get('dataGroupId'));
             savedData.push(data);
           }
         }
